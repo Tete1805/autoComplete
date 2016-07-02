@@ -5,8 +5,8 @@
 ## Usage
 
 ```html
-<link href="autocomplete.css"></link>
-<script src="autocomplete.js"></script>
+<link href="autocomplete.min.css" rel="stylesheet">
+<script src="autocomplete.min.js"></script>
 <input my-autocomplete='{ "list": ["Item1", "Item2", "Item3"], "maxItems": 20, "markItems": true }' placeholder="Try typing here"/>
 ```
 
