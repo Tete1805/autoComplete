@@ -1,0 +1,43 @@
+* {
+  font-family: 'Handlee';
+  font-size: 19px;
+}
+
+.my-autocomplete {
+  display: inline-block;
+  position: relative;
+}
+
+.my-autocomplete > ul {
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+
+.my-autocomplete > ul > li {
+  border: 1px solid #ddd;
+  border-bottom: none;
+  cursor: pointer;
+  padding: 2px 8px;
+}
+
+.my-autocomplete > ul > li.active {
+  background-color: #09d;
+  color: #fff;
+}
+
+.my-autocomplete > ul:last-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.my-autocomplete > ul > li > span.ac-found {
+  border-bottom: 1px solid #3a1;
+  color: #3a1;
+}
+
+.my-autocomplete > ul > li.active > span.ac-found {
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
