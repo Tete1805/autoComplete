@@ -89,7 +89,7 @@
   function buildSuggestions(e) {
 
     var target = e.currentTarget,
-        value = target.value,
+        value = target.value.toLowerCase(),
         opts = target.getAttribute("my-autocomplete"),
         data = opts ? JSON.parse(opts) : {},
         parent = target.parentElement;
@@ -127,7 +127,7 @@
 
         letters.forEach(function(letter) {
           text = text.map(function(t) {
-            if (t.toLowerCase() === letter.toLowerCase()) {
+            if (t.toLowerCase() === letter) {
               return "<span class='ac-found'>" + t + "</span>";
             }
             return t;
@@ -140,11 +140,18 @@
 
       // Si la suggestion contient toutes les lettres de l'input, on la rajoute à la liste des suggestions à afficher
       // On escape les caractères qui perturbent les regexp au préalable
-      var r = new RegExp("[^" + li.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&").replace(/(<[^>]*>)/g, "") + "]", "i");
 
-      if (!r.test(value)) {
+      var cleanLi = li.toLowerCase().replace(/(<[^>]*>)/g, "");
+      var r = new RegExp("[^" + cleanLi.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&") + "]", "i");
+
+      // Si la suggestion contient exactement l'input, on l'ajoute en début de liste, sinon, à la suite
+
+      if (value.length && cleanLi.indexOf(value) > -1) {
+        lisToAdd.splice(0, 0, li);
+      } else if (!r.test(value)) {
         lisToAdd.push(li);
       }
+
     });
 
     // Build les x premières suggestions
