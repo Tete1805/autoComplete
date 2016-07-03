@@ -14,7 +14,7 @@
 ## Features
 
   - Simple
-  - Small (~3kb gzipped including CSS)
+  - Small (~1.5kb zipped including CSS)
   - CSS Hackable
   - Can highlight matching letters
   - Can limit the number of results
