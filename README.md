@@ -6,13 +6,15 @@
 
 ```html
 <link href="autocomplete.min.css" rel="stylesheet">
+<input my-autocomplete='{ "list": ["Item1", "Item2", "Item3"], "maxItems": 20, "markItems": true }' 
+       placeholder="Try typing here"/>
 <script src="autocomplete.min.js"></script>
-<input my-autocomplete='{ "list": ["Item1", "Item2", "Item3"], "maxItems": 20, "markItems": true }' placeholder="Try typing here"/>
 ```
 
 ## Features
 
   - Simple
+  - Small (~3kb gzipped including CSS)
   - CSS Hackable
   - Can highlight matching letters
   - Can limit the number of results
@@ -20,17 +22,17 @@
 
 ## Notes
 
-This was done as a project / personnal challenge.
+This was done as a simple project / personnal challenge.
 
-This is clearly aimed at server rendered pages, no AJAX capabilities and I'm not gonna add it. 
+This is clearly aimed at server rendered pages, no AJAX capabilities for now.
 
-(Maybe in a different project though.)
+I haven't written any test yet and it may have some quirks. :smile:
 
-No tests are available at the moment.
+=> Especially on the placement of the suggestions. You may have to change / override .my-autocomplete > ul { top: 12px  } to another value depending on context. (For now.)
 
-May have some quirks. :smile:
+I'll work on other versions, one AJAX focused and another one datalist dependant. (To limit the size of the pages rendered when multiple inputs use the same source.) Another one will include the three possibilities and a last one will not include matching letters to be the smallest possible.
 
-## Authors
+## Author
 
 Terence BARBE
 
