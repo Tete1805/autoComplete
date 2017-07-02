@@ -184,7 +184,9 @@
 
   }
 
-  window.onload = function() {
+    window.addEventListener('load', bootstrap, false);
+
+    function bootstrap() {
 
     // On récupère tous les inputs de type my-autocomplete
     var autoCompletes = document.querySelectorAll("input[my-autocomplete]");
