@@ -12,16 +12,6 @@
     }
   }
 
-  function showUL(e) {
-    displayNextElement.call(e, "inline-block");
-  }
-
-  function hideUL(e) {
-    if (next(e)) {
-      displayNextElement.call(e, "none");
-    }
-  }
-
   function toArray() {
     var self = this;
     return Object.keys(this).map(function (x) {
@@ -45,7 +35,7 @@
   }
 
   function selectActiveValue(e) {
-    if (e.key === "Tab" || e.key === "Enter") {
+    if (e.key === "Enter") {
       var target = e.currentTarget;
       if (target.value.length > 0) {
         target.value = getActiveValue(target.nextElementSibling);
@@ -180,13 +170,8 @@
 
   function addEventToAutocomplete(autoComplete) {
 
-    // Rend visible la liste des suggestions au focus
-    autoComplete.addEventListener("focus", showUL);
-
+    // Crée la liste des suggestions au focus
     autoComplete.addEventListener("focus", buildSuggestions);
-
-    // Rend inivisble la liste des sugggestions au blur
-    autoComplete.addEventListener("blur", hideUL);
 
     // Gestion du clavier
     autoComplete.addEventListener("keyup", buildSuggestions);
@@ -199,7 +184,7 @@
 
   }
 
-  (function() {
+  window.onload = function() {
 
     // On récupère tous les inputs de type my-autocomplete
     var autoCompletes = document.querySelectorAll("input[my-autocomplete]");
@@ -214,6 +199,6 @@
       input.parentElement.insertBefore(div, input);
       div.appendChild(input);
     });
-  })();
+  };
 
 })();

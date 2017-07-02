@@ -1,13 +1,20 @@
+.my-autocomplete > input:focus + ul {
+  display: block;
+}
+
 .my-autocomplete {
   position: relative;
 }
 
 .my-autocomplete > ul {
+  background-color: #fff;
+  display: none;
+  left: 0;
   list-style: none;
   padding: 0;
   position: absolute;
-  left: 0;
-  top: 12px;
+  top: 100%;
+  width: 100%;
 }
 
 .my-autocomplete > ul > li {
